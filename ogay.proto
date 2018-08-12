@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package ogay_grpc;
+
+service Translator {
+    rpc TranslateWord (TranslationRequest) returns (TranslationResponse) {}
+}
+
+message TranslationRequest {
+    string englishWord = 1;
+}
+
+message TranslationResponse {
+    string pigLatinWord = 1;
+}
