@@ -1,12 +1,12 @@
 package main
 
 import (
+	"github.com/spilth/ogay-grpc"
+	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"log"
-	"golang.org/x/net/context"
-	"time"
 	"os"
-	"github.com/spilth/ogay-grpc"
+	"time"
 )
 
 func main() {

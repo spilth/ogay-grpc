@@ -1,20 +1,20 @@
 package main
 
 import (
-	"google.golang.org/grpc"
-	"net"
-	"log"
-	"golang.org/x/net/context"
 	"github.com/spilth/ogay"
 	"github.com/spilth/ogay-grpc"
+	"golang.org/x/net/context"
+	"google.golang.org/grpc"
+	"log"
+	"net"
 )
 
-type translatorServer struct {}
+type translatorServer struct{}
 
 func (*translatorServer) TranslateWord(context context.Context, translationRequest *ogay_grpc.TranslationRequest) (*ogay_grpc.TranslationResponse, error) {
 	pigLatinWord := ogay.TranslateWord(translationRequest.EnglishWord)
 
-	return &ogay_grpc.TranslationResponse{PigLatinWord: pigLatinWord},nil
+	return &ogay_grpc.TranslationResponse{PigLatinWord: pigLatinWord}, nil
 }
 
 func main() {
