@@ -11,7 +11,7 @@ import (
 
 type translatorServer struct {}
 
-func (*translatorServer) TranslateWord(context context.Context, translationRequest *ogay_grpc.TranslationRequest) (translationResponse *ogay_grpc.TranslationResponse, err error) {
+func (*translatorServer) TranslateWord(context context.Context, translationRequest *ogay_grpc.TranslationRequest) (*ogay_grpc.TranslationResponse, error) {
 	pigLatinWord := ogay.TranslateWord(translationRequest.EnglishWord)
 
 	return &ogay_grpc.TranslationResponse{PigLatinWord: pigLatinWord},nil
