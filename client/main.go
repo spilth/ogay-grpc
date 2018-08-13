@@ -23,11 +23,11 @@ func main() {
 
 	translatorClient := ogay_grpc.NewTranslatorClient(connection)
 
-	context, cancel := context.WithTimeout(context.Background(), time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 
 	translationRequest := &ogay_grpc.TranslationRequest{EnglishWord: englishWord}
-	translationResponse, err := translatorClient.TranslateWord(context, translationRequest)
+	translationResponse, err := translatorClient.TranslateWord(ctx, translationRequest)
 	if err != nil {
 		log.Fatalf("could not translate: %v", err)
 	}
